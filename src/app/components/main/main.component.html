@@ -27,17 +27,15 @@
                 Previous Card
             </div>
             <card *ngIf="previousCardNumber > -1" class="" [number]="workoutDeck[previousCardNumber].value"
-                [suit]="workoutDeck[previousCardNumber].suit" (cardEmitter)="displayExercise()"
-                (click)="decrementCardCounter()"></card>
+                [suit]="workoutDeck[previousCardNumber].suit" (click)="decrementCardCounter()"></card>
         </div>
         <!-- Current card -->
         <div class="col-md-4 col-sm-12 center">
             <div *ngIf="currentCardNumber < workoutDeck.length" class="alert alert-success" role="alert">
                 Current Card
             </div>
-            <card *ngIf="currentCardNumber < workoutDeck.length" class=""
-                [number]="workoutDeck[currentCardNumber].value" [suit]="workoutDeck[currentCardNumber].suit"
-                (click)="incrementCardCounter()"></card>
+            <card *ngIf="currentCardNumber < workoutDeck.length" class=""[number]="workoutDeck[currentCardNumber].value"
+                [suit]="workoutDeck[currentCardNumber].suit" (click)="incrementCardCounter()"></card>
         </div>
         <!-- Exercise info -->
         <div class="col-md-4 col-sm-12 center">

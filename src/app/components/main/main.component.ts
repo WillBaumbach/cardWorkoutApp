@@ -51,6 +51,7 @@ export class MainComponent implements OnInit {
         this.exercise = undefined;
         this.currentCardNumber = 0;
         this.previousCardNumber = -1;
+        this.displayExercise();
     }
 
     public createDeck() {
