@@ -1,0 +1,16 @@
+.container {
+    margin-top: 2em;
+}
+
+.alert {
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;    
+}
+.sticky-card {
+    max-height: 50%;
+    width: 100%;
+}
