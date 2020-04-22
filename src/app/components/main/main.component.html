@@ -43,7 +43,7 @@
         <!-- Previous card -->
         <div class="col center">
             <card *ngIf="previousCardNumber > -1" class="" [number]="workoutDeck[previousCardNumber].value" [suit]="workoutDeck[previousCardNumber].suit"
-                (cardEmitter)="displayExercise($event)" (click)="decrementCardCounter()"></card>
+                (cardEmitter)="displayExercise()" (click)="decrementCardCounter()"></card>
         </div>
         <!-- Current card -->
         <div class="col center">
