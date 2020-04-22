@@ -7,6 +7,9 @@
     .desktopOnly {
         display: none;
     }
+    .centerText {
+        text-align: center;
+    }
 }
 
 img {
