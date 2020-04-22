@@ -11,7 +11,8 @@
                         <input type="number" class="form-control" id="numCards" [(ngModel)]="numCards">
                     </div>
                     <button href="#" class="btn btn-primary" (click)="createCards()">Submit</button>
-                    <button style="margin-left: 1em" href="#" class="btn btn-danger" (click)="resetCards()">Reset</button>
+                    <button style="margin-left: 1em" href="#" class="btn btn-danger"
+                        (click)="resetCards()">Reset</button>
                 </div>
             </div>
         </div>
@@ -21,37 +22,28 @@
 <div *ngIf="workoutDeck && showCards" class="container">
     <div class="row">
         <!-- Previous card -->
-        <div class="col">
+        <div *ngIf="previousCardNumber > -1" class="col-md-4 col-sm-12 center">
             <div class="alert alert-danger" role="alert">
                 Previous Card
-              </div>
+            </div>
+            <card class="" [number]="workoutDeck[previousCardNumber].value"
+                [suit]="workoutDeck[previousCardNumber].suit" (cardEmitter)="displayExercise()"
+                (click)="decrementCardCounter()"></card>
         </div>
         <!-- Current card -->
-        <div class="col">
+        <div *ngIf="currentCardNumber < workoutDeck.length" class="col-md-4 col-sm-12 center">
             <div class="alert alert-success" role="alert">
                 Current Card
-              </div>
+            </div>
+            <card  class=""
+                [number]="workoutDeck[currentCardNumber].value" [suit]="workoutDeck[currentCardNumber].suit"
+                (click)="incrementCardCounter()"></card>
         </div>
         <!-- Exercise info -->
-        <div class="col">
+        <div class="col-md-4 col-sm-12 center">
             <div class="alert alert-success" role="alert">
                 Current Exercise
-              </div>
-        </div>
-    </div>
-    <div class="row">
-        <!-- Previous card -->
-        <div class="col center">
-            <card *ngIf="previousCardNumber > -1" class="" [number]="workoutDeck[previousCardNumber].value" [suit]="workoutDeck[previousCardNumber].suit"
-                (cardEmitter)="displayExercise()" (click)="decrementCardCounter()"></card>
-        </div>
-        <!-- Current card -->
-        <div class="col center">
-            <card *ngIf="currentCardNumber < workoutDeck.length" class="" [number]="workoutDeck[currentCardNumber].value" 
-                [suit]="workoutDeck[currentCardNumber].suit" (click)="incrementCardCounter()"></card>
-        </div>
-        <!-- Exercise info -->
-        <div class="col center">
+            </div>
             <div *ngIf="exercise && reps" class="card sticky-card">
                 <div class="card-body">
                     <h5 class="card-title">{{exercise}}</h5>

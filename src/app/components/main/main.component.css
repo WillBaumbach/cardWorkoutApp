@@ -7,8 +7,8 @@
 }
 
 .center {
-    display: flex;
-    justify-content: center;    
+    display: block;
+    text-align: center;    
 }
 .sticky-card {
     max-height: 50%;
