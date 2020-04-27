@@ -81,8 +81,7 @@ export class MainComponent implements OnInit {
     }
 
     public displayExercise() {
-        const currentCard = this.workoutDeck[this.currentCardNumber]
-        console.log(currentCard);
+        const currentCard = this.workoutDeck[this.currentCardNumber];
         if (currentCard.value !== 1) {
             this.rest = undefined
             this.reps = Number(currentCard.value)+10;
@@ -118,14 +117,34 @@ export class MainComponent implements OnInit {
     }
 
     public incrementCardCounter() {
-        this.displayExercise();
         this.currentCardNumber += 1;
         this.previousCardNumber += 1;
+        this.displayExercise();
     }
 
     public decrementCardCounter() {
-        this.displayExercise()
         this.currentCardNumber -= 1;
         this.previousCardNumber -= 1;
+        const currentCard = this.workoutDeck[this.currentCardNumber];
+        const nextCard = this.workoutDeck[this.currentCardNumber+1];
+        if (currentCard.suit === 'c') {
+            this.cCounter -= 1;
+        } else if (currentCard.suit === 'd') {
+            this.dCounter -= 1;
+        } else if (currentCard.suit === 'h') {
+            this.hCounter -= 1;
+        } else if (currentCard.suit === 's') {
+            this.sCounter -= 1;
+        }
+        if (nextCard.suit === 'c') {
+            this.cCounter -= 1;
+        } else if (nextCard.suit === 'd') {
+            this.dCounter -= 1;
+        } else if (nextCard.suit === 'h') {
+            this.hCounter -= 1;
+        } else if (nextCard.suit === 's') {
+            this.sCounter -= 1;
+        }
+        this.displayExercise()
     }
 }
